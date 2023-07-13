@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 WORKDIR /app
 RUN pip install gunicorn==20.1.0
-RUN sudo apt-get install libpq-dev python3-dev
+RUN apt-get install -y libpq-dev python3-dev
 COPY requirements.txt .
 RUN pip install -r requirements.txt --no-cache-dir
 COPY . .
