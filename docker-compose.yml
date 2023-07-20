@@ -16,7 +16,8 @@ services:
     env_file: .env
     volumes:
       - static:/backend_static
-
+    depends_on:
+    - db
   frontend:
     env_file: .env
     build: ./frontend/
@@ -31,3 +32,5 @@ services:
       - static:/staticfiles
     ports:
       - 8000:80
+    depends_on:
+    - backend     
